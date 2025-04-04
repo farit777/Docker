@@ -1,0 +1,19 @@
+#yaml version: '3.8'
+
+services:
+  notebook:
+    image: my-ml-notebook
+    ports:
+      - "8888:8888"
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
